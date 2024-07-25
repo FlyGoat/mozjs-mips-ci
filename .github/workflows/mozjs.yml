@@ -36,3 +36,5 @@ jobs:
       - name: Build
         working-directory: ./mozilla-unified
         run: ./mach build
+        env:
+          MOZCONFIG: "../mozconfig/js-mips64-sim"
