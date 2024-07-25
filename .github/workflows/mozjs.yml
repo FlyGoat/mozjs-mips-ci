@@ -29,7 +29,7 @@ jobs:
 
       - name: Apply patches
         working-directory: ./mozilla-unified
-        run: find ../patches -type f -name '*.patch' -print0 | xargs -0 patch -p1
+        run: patch -p1 < ../aio.patch
 
       # Runs a single command using the runners shell
       - name: Bootstrap
