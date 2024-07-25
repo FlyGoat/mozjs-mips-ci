@@ -27,6 +27,10 @@ jobs:
           repository: mozilla/gecko-dev
           path: './mozilla-unified'
 
+      - name: Apply patches
+        working-directory: ./mozilla-unified
+        run: find ../patches -type f -name '*.patch' -print0 | xargs -0 patch -p1
+
       # Runs a single command using the runners shell
       - name: Bootstrap
         working-directory: ./mozilla-unified

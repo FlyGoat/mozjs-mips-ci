@@ -1,0 +1,30 @@
+diff --git a/js/src/jit/mips64/MoveEmitter-mips64.cpp b/js/src/jit/mips64/MoveEmitter-mips64.cpp
+--- a/js/src/jit/mips64/MoveEmitter-mips64.cpp
++++ b/js/src/jit/mips64/MoveEmitter-mips64.cpp
+@@ -28,11 +28,11 @@
+         masm.storeFloat32(temp, cycleSlot(slotId));
+       } else {
+         masm.storeFloat32(to.floatReg(), cycleSlot(slotId));
+       }
+       break;
+-    case ABIType::Float64:
++    case MoveOp::DOUBLE:
+       if (to.isMemory()) {
+         FloatRegister temp = ScratchDoubleReg;
+         masm.loadDouble(getAdjustedAddress(to), temp);
+         masm.storeDouble(temp, cycleSlot(slotId));
+       } else {
+@@ -83,11 +83,11 @@
+         masm.storeFloat32(temp, getAdjustedAddress(to));
+       } else {
+         masm.loadFloat32(cycleSlot(slotId), to.floatReg());
+       }
+       break;
+-    case ABIType::Float64:
++    case MoveOp::DOUBLE:
+       if (to.isMemory()) {
+         FloatRegister temp = ScratchDoubleReg;
+         masm.loadDouble(cycleSlot(slotId), temp);
+         masm.storeDouble(temp, getAdjustedAddress(to));
+       } else {
+
