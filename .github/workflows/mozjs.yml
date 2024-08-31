@@ -27,9 +27,9 @@ jobs:
           repository: mozilla/gecko-dev
           path: './mozilla-unified'
 
-      - name: Apply patches
-        working-directory: ./mozilla-unified
-        run: patch -p1 < ../aio.patch
+#      - name: Apply patches
+#        working-directory: ./mozilla-unified
+#        run: patch -p1 < ../aio.patch
 
       # Runs a single command using the runners shell
       - name: Bootstrap
